@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --progress --colors",
-    "start": "webpack-dev-server --progress --colors --watch -d"
+    "build": "NODE_ENV=production webpack --progress --colors",
+    "start": "NODE_ENV=production webpack-dev-server --port 8082 --progress --colors --watch -d",
+    "test": "NODE_ENV=test webpack --progress --colors && node dist/test/bundle.js"
   },
   "author": "me",
   "license": "ISC",
