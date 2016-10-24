@@ -1,7 +1,4 @@
 import Logger from '../Logger';
-import {
-  expectToEqual
-} from './expectations';
 
 class Test {
   constructor(actualValue) {
@@ -12,6 +9,13 @@ class Test {
     return {
       passed: this.actualValue === expectedValue,
       errorMessage: `expected ${this.actualValue} to equal ${expectedValue}`
+    }
+  }
+
+  deeplyEquals(expectedValue) {
+    return {
+      passed: this.actualValue == expectedValue,
+      errorMessage: `expected ${this.actualValue} to deeply equal ${expectedValue}`
     }
   }
 }

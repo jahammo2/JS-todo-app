@@ -1,11 +1,14 @@
 import {
   TestFramework,
   Test,
-  Home,
   testFramework
 } from '../testHelpers';
+import Home from '../../../src/Home';
 let expectedValue;
 let actualValue;
+
+// Child tests
+import LogIn from './LogIn/index.test.js';
 
 testFramework.runTests(['Home','renderTasks'], [
   () => {
@@ -13,9 +16,11 @@ testFramework.runTests(['Home','renderTasks'], [
     home.tasks = ['testHelpers', 'bar'];
     actualValue = home.renderTasks();
     expectedValue = '<li>testHelpers</li><li>bar</li>';
+
     testFramework.it(
       'returns a list of list items with tasks',
       new Test(actualValue).equals(expectedValue)
     );
   }
 ]);
+

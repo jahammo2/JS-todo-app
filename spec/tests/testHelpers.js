@@ -1,11 +1,14 @@
 import TestFramework from '../TestFramework';
+import {
+  removeWhiteSpace
+} from '../TestFramework/helpers';
 import Test from '../TestFramework/Test';
-import Home from '../../src/Home';
-const testFramework = new TestFramework();
+import Logger from '../TestFramework/Logger';
+const testFramework = new TestFramework(Logger);
 
 export {
   TestFramework,
   Test,
-  Home,
-  testFramework
+  testFramework,
+  removeWhiteSpace
 };

@@ -2,23 +2,22 @@ import {
   GREEN,
   RED
 } from './Constants/colors';
-import Logger from './Logger';
-import Test from './Test';
 
 class TestFramework {
-  constructor() {
+  constructor(logger) {
     this.testSpaces = 0;
+    this.logger = logger;
   }
 
   it(description, test) {
-    new Logger(
+    new this.logger(
       this.testSpaces,
       description,
       GREEN
     ).run();
 
     if (!test.passed) {
-      new Logger(
+      new this.logger(
         this.testSpaces + 2,
         test.errorMessage,
         RED
@@ -37,7 +36,7 @@ class TestFramework {
 
   logDescriptions(descriptions) {
     descriptions.forEach((description, index) => {
-      new Logger(
+      new this.logger(
         index * 2,
         description,
         GREEN

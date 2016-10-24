@@ -1,6 +1,7 @@
+import LogIn from './LogIn';
+
 class Home {
   constructor() {
-    this.x = 'deez';
     this.tasks = ['foo', 'bar'];
   }
 
@@ -11,7 +12,10 @@ class Home {
   }
 
   render() {
-    return `<ul>${this.renderTasks()}</ul>`;
+    return `
+      <div>${new LogIn().render()}</div>
+      <ul>${this.renderTasks()}</ul>
+    `;
   }
 }
 
